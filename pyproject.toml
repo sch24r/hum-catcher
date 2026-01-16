@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hum-catcher"
+version = "0.1.0"
+description = "Electrical Network Frequency (ENF) analysis and matching tool."
+readme = "README.md"
+requires-python = ">=3.8"
+license = {file = "LICENSE"}
+authors = [
+  {name = "schello24r", email = "schello24r@gmail.com"}
+]
+keywords = ["audio", "enf", "forensics", "grid frequency", "mains hum"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Multimedia :: Sound/Audio :: Analysis",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+]
+dependencies = [
+    "numpy",
+    "scipy",
+    "matplotlib",
+    "audiofile",
+    "sortedcontainers",
+    "tqdm",
+    "ffmpeg-python",
+    "python-dateutil",
+]
+
+[project.optional-dependencies]
+opencl = ["pyopencl"]
+
+[project.urls]
+"Repository" = "https://github.com/sch24r/hum-catcher"
+"Bug Tracker" = "https://github.com/sch24r/hum-catcher/issues"
+
+[project.scripts]
+hum-catcher = "hum_catcher.__main__:main"
+
+[tool.setuptools.packages.find]
+exclude = [".git*", "docs*", "tests*", "dist*", "build*"]
